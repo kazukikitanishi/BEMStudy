@@ -1,5 +1,10 @@
 @import 'ress';
 @import './var';
+html{
+  font-size: 62.5%;
+}
+
+
 
 .header{
   position: fixed;
@@ -25,11 +30,8 @@
     display: flex;
     height: 100%;
     width: 40%;
-    border: solid red 1px;
+    // border: solid red 1px;
     margin-right: 48px;
-    @media screen and (max-width:600px){
-      display: none;
-    }
   }
   &__list{
     height: 100%;
@@ -37,8 +39,8 @@
     margin-left: 16px;
   }
   &__link{
-    font-size: 0.8rem;
-    border: solid 1px blue;
+    font-size: 1.8rem;
+    // border: solid 1px blue;
     color: $base;
     display: block;
     width: 100%;
@@ -50,48 +52,64 @@
   }
 }
 
-.main{
-  &__first_view{
-    height: 100vh;
-    width: 100%;
-    background-image: url(../images/top.jpg);
-    background-repeat: no-repeat;
-    background-position:top center;
-    background-size: 100%;
-    position: relative;
-  }
-  &__first_group{
+.index,
+.news{
+  margin: 0 15.2%;
+}
+
+.first-view{
+  height: 100vh;
+  width: 100%;
+  background-image: url(../images/top.jpg);
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-size: cover;
+  position: relative;
+  &__group{
     color: #fff;
     position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    width: 30%;
-    height: 20px;
+    // top: 0;
+    // right: 0;
+    // bottom: 0;
+    // left: 0;
+    inset: 11.11% 0 0 0;
+    width: 40%;
     margin: auto;
+    height: fit-content;
+    // border: 1px solid purple;
   }
-  &__first_title{
+  &__title{
     text-align: center;
-    font-size: 48px;
+    white-space: nowrap;
+    // border: 1px solid red;
+    // font-size: 48px;
+    font-size: 4.8rem;
     margin-bottom: 16px;
   }
-  &__first_txt{
+  &__txt{
     font-size: 18px;
+    // border: solid 1px;
   }
-  &__container{ 
-    margin: 0 220px;
-    // width: 65%;
-    color: $base;
+  &__txt-none{
+    display: none;
   }
+}
+
+.index{
+  color: $base;
   &__title{
     font-size: 48px;
     text-align: center;
+    display: block;
     margin: 80px 0;
+  }
+  &__title:last-child{
+    margin-top: 160px;
   }
   &__wrap{
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
   }
   &__img{
     width: 468px;
@@ -100,28 +118,53 @@
     background-repeat: no-repeat;
     background-position: center center;
   }
-  &__img_section1{
+  &__img-section1{
     background-image: url(../images/section1.jpg);
   }
-  &__img_section2{
+  &__img-section2{
     background-image: url(../images/section2.jpg);
   }
   &__element{
     width: 40%;
+    justify-content: space-between;
   }
-  &__sub_title{
-    margin: 32px 0;
-    font-size: 36px;
+  &__sub-title{
+    font-size: 3.6rem;
+    margin: 36px 0;
   }
-  &__sub_group{
-    width: 324px;
-  }
-  &__sub_index{
-    text-align: center;
-    font-size: 24px;
-    margin-bottom: 32px;
+  &__text{
+    font-size: 1.8rem;
   }
 }
+
+
+.news{
+  margin-top: 160px;
+  &__title{
+    font-size: 4.8rem;
+    text-align: center;
+    margin-bottom: 80px;
+  }
+  &__element-wrap{
+    display: flex;
+    justify-content: space-between;
+    width: fit-content;
+    // border: 1px solid deeppink;
+  }
+  &__element{
+    width : calc(95% / 3) ;
+  }
+  &__sub-title{
+    font-size: 2.4rem;
+    text-align: center;
+    margin-bottom: 32px;
+  }
+  &__text{
+    font-size: 1.8rem;
+  }
+}
+
+
 .footer{
   width: 100%;
   height: 70px;
@@ -130,4 +173,87 @@
   line-height: 70px;
   color: #fff;
   margin-top: 176px;
+}
+
+
+@media screen and (max-width:1120px){
+  // 960未満〜
+  .header{
+    &__nav{
+      background-color: red;
+      width: 100px;
+      height: 100%;
+      margin-right: 0;
+    }
+    &__list{
+      display: none;
+    }
+  }
+  .first-view{
+    // border: 1px solid red;
+    height: 50vh;
+    &__gloup{
+      // inset: 30% 0 0 0;
+    }
+    &__title{
+      font-size: 3.2rem;
+      // width: fit-content;
+    }
+    &__txt{
+      display: none;
+    }
+    &__txt-none{
+      display: block;
+    }
+  }
+  .news,
+  .index{
+    margin: 0 3%;
+  }
+
+.index{
+  &__wrap{
+    justify-content: space-around;
+    flex-wrap: wrap;
+  }
+  &__element{
+    width: 100%;
+  }
+}
+
+  .news{
+    &__element-wrap{
+      flex-wrap: wrap;
+      justify-content: space-around;
+    }
+    &__element{
+      // width: calc(100% / 3);
+      min-width: 300px;
+      margin-top: 40px;
+      text-align: center;
+      // border: solid 1px blue;
+    }
+    &__title{
+      font-size: 3.2rem;
+    }
+    &__sub-title{
+      font-size: 2.4rem;
+      margin-bottom: 8px;
+    }
+    &__text{
+      font-size: 1.6rem;
+    }
+  }
+}
+
+@media screen and(max-width:769px){
+  // 1280未満〜960以上
+  .index{
+    &__title{
+      font-size: 3.2rem;
+    }
+    &__sub-title{
+      font-size: 2.4rem;
+    }
+  }
 }
